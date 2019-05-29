@@ -1,6 +1,7 @@
 const canvas = document.querySelector("#jsCanvas");
 const ctx = canvas.getContext("2d");
 const colors = document.querySelectorAll(".jsColor");
+const range = document.querySelector("#jsRange");
 
 canvas.width = 700;
 canvas.height = 700;
@@ -43,3 +44,12 @@ function handleColorClick(event) {
 }
 
 colors.forEach(color => color.addEventListener("click", handleColorClick));
+
+function handleRangeChange(event) {
+  const size = event.target.value;
+  ctx.lineWidth = size;
+}
+
+if (range) {
+  range.addEventListener("input", handleRangeChange);
+}
